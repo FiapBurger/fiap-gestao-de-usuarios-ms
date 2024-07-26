@@ -9,7 +9,7 @@ services:
     environment:
       POSTGRES_PASSWORD: fiap@123
       POSTGRES_USER: postgres
-      POSTGRES_DB: paciente
+      POSTGRES_DB: gestao-usuarios
     ports:
       - "5432:5432"
     volumes:
