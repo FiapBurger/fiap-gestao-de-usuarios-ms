@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ms-gestaoUsuarios
-        image: ms-gestaoUsuarios:0.0.1
+        image: ms-gestao-usuarios:0.0.1
         ports:
         - containerPort: 80
 ---
