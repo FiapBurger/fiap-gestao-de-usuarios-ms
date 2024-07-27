@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-gestao-usuarios
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ms-gestao-usuarios
+  template:
+    metadata:
+      labels:
+        app: ms-gestao-usuarios
+    spec:
+      containers:
+      - name: ms-gestao-usuarios
+        image: ms-gestao-usuarios:0.0.1
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-gestao-usuarios-service
+spec:
+  selector:
+    app: ms-gestao-usuarios-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
