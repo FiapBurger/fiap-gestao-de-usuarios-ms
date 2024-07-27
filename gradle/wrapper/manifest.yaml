@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ms-gestaoUsuarios
+  name: ms-gestao-usuarios
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: ms-gestaoUsuarios
+      app: ms-gestao-usuarios
   template:
     metadata:
       labels:
-        app: ms-gestaoUsuarios
+        app: ms-gestao-usuarios
     spec:
       containers:
-      - name: ms-gestaoUsuarios
+      - name: ms-gestao-usuarios
         image: ms-gestao-usuarios:0.0.1
         ports:
         - containerPort: 80
@@ -21,10 +21,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ms-gestaoUsuarios-service
+  name: ms-gestao-usuarios-service
 spec:
   selector:
-    app: ms-gestaoUsuarios-service
+    app: ms-gestao-usuarios-service
   ports:
     - protocol: TCP
       port: 80
