@@ -45,7 +45,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       # Step 6: Build Docker image
-      - name: Build Docker image gestaoUsuarios
+      - name: Build Docker image ms-gestao-usuarios
         run: |
           docker build -t ${{ secrets.ECR_REPOSITORY }}:latest .
 
@@ -61,7 +61,7 @@ jobs:
 
       - name: Create namespace
         run: |
-          kubectl apply -f infra/namespace-customer.yml
+          kubectl apply -f infra/namespace-ms-gestao-usuarios.yml
 
       - name: Substitute variables in deployment.yml
         run: |
@@ -71,13 +71,13 @@ jobs:
           ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
           GITHUB_SHA: ${{ github.sha }}
 
-      - name: Deploy application gestaoUsuarios
+      - name: Deploy application ms-gestao-usuarios
         run: |
-          kubectl apply -f infra/deployment_substituted.yml -n gestaoUsuarios-namespace
+          kubectl apply -f infra/deployment_substituted.yml -n ms-gestao-usuarios-namespace
 
       - name: Create service
         run: |
-          kubectl apply -f infra/service.yml -n gestaoUsuarios-namespace
+          kubectl apply -f infra/service.yml -n ms-gestao-usuarios-namespace
 
       #- name: Wait for rollout to finish
         #run: |
