@@ -12,7 +12,8 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-healthy-threshold: "2"
     service.beta.kubernetes.io/aws-load-balancer-healthcheck-unhealthy-threshold: "2"
     service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
-    service.beta.kubernetes.io/aws-load-balancer-target-group-arn: "arn:aws:elasticloadbalancing:us-east-1:643230847802:targetgroup/clients-fiap-burger-tg/3e4c13954017efe0"
+    service.beta.kubernetes.io/aws-load-balancer-target-group-arn: "arn:aws:elasticloadbalancing:us-east-1:287009118791:loadbalancer/net/a6ef762da77164869a05c12a2f59d57e/9b1e106e7699c776"
+    
 spec:
   selector:
     app: ms-gestao-usuarios
